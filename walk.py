@@ -65,6 +65,24 @@ class Simulation:
         self.display_grid = np.full((GRID_SIZE, GRID_SIZE), EMPTY_SYMBOL)
         self.update_display_grid()
     
+    def get_agent_sensory_experience(self):
+        """
+        Возвращает сенсорный опыт агента на текущей клетке.
+        Агент не знает тип объекта, только его raw-свойства!
+        """
+        obj_type = self.grid[tuple(self.agent_pos)]
+        properties = self.object_properties[obj_type]
+        
+        sensory_experience = {
+            'texture': properties['texture'],
+            'temperature': properties['temperature'], 
+            'softness': properties['softness'],
+            'position': tuple(self.agent_pos),
+            'energy_change': 0  # будет заполнено после взаимодействия
+        }
+        
+        return sensory_experience
+        
     def spawn_objects(self, obj_type, count):
         """Размещает объекты на сетке в случайных свободных местах"""
         for _ in range(count):
