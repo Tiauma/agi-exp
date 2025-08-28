@@ -265,7 +265,7 @@ class ActiveInferenceAgent:
         
         # Сохраняем текущее состояние
         self.current_position = tuple(self.sim.agent_pos)
-        self.current_energy = self.sim.agent_energy
+        self.current_energy = self.sim.agent_energy #
         self.current_sensory = self.sim.get_agent_sensory_experience()
         
         # Шаг 1: Генерация предсказаний
