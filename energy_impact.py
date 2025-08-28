@@ -280,7 +280,7 @@ class ActiveInferenceAgent:
         errors = self.compute_prediction_errors(actual_observation, predictions)
         
         # Шаг 4: Обновление убеждений
-        actual_energy_change = self.sim.agent_energy - self.current_energy
+        actual_energy_change = self.sim.agent_energy - self.current_energy # всегда 0?
         self.update_beliefs(actual_observation, actual_energy_change)
         
         # Шаг 5: Расчет ожидаемой свободной энергии
